@@ -17,7 +17,8 @@ function sortDateAsc(a,b){
     return new Date(JSON.parse(localStorage.getItem(b)).datecorrect) - new Date(JSON.parse(localStorage.getItem(a)).datecorrect);
  }
 
-function deserialize(arr) {
+function locstoreParse(arr) {
+    $('tbody').children().remove();
     arr.map(key => {
         let deserialize = JSON.parse(localStorage.getItem(key));
         let taskname = deserialize.taskname;

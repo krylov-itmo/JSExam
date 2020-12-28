@@ -5,7 +5,7 @@ $(function(){
 let rulesForALL = {
 	name: [5,20,"#taskname","Имя задачи должно быть от 5 до 20 символов"],
 	text: [10,100,"#tasktext","Описание задачи должно быть от 10 до 100 символов"],
-	date: [new Date(),"#deadline","Дата вводится в формате HH:MM DD.MM.YYYY и не может быть раньше текущего времени"], 
+	date: [new Date(),new Date(new Date().setFullYear(new Date().getFullYear()+5)),"#deadline","Дата вводится в формате HH:MM DD.MM.YYYY и не может быть раньше текущего времени"], 
 	users: [2,5,"#users","В задачу могут быть добавлены от 2х до 5ти пользователей, с именем больше 0"]
 
 };
@@ -30,7 +30,7 @@ let validator = {
 
 	validate_deadline(arr){
 		let input = arr;
-		let [min, idfield, error] = input;
+		let [min, max, idfield, error] = input;
 		let field = $(idfield);
 		let val = field.val();
 		val = val.trim();
@@ -39,7 +39,7 @@ let validator = {
 			let dateval = val.split(" ")[1].split('.');
 			dateval[1] -= 1;
 			let date = new Date(dateval[2],dateval[1],dateval[0],timeval[0],timeval[1]);
-			if (date.getFullYear() == dateval[2] && date.getMonth() == dateval[1] && date.getDate() == dateval[0] && date.getHours() == timeval[0] && date.getMinutes() == timeval[1] && min < date) {
+			if (date.getFullYear() == dateval[2] && date.getMonth() == dateval[1] && date.getDate() == dateval[0] && date.getHours() == timeval[0] && date.getMinutes() == timeval[1] && min < date && max > date) {
 				field.removeClass('errorfield');
 				$('#errormessage').children().remove();
 				return true;
@@ -86,7 +86,6 @@ let validator = {
 	}
 
 };
-
 function timeConvert(inputtext) {
 	let time= inputtext.split(" ")[0].split(':');
 	let date = inputtext.split(" ")[1].split('.');
@@ -109,16 +108,16 @@ function genId(){
 }
 
 $('#adduserbtn').click(function(e) {
-	if (!taskname.val() || !tasktext.val() || !deadline.val()) {
-		$('#errormessage').html('<p>Сначало заполните основные поля</p>');
-	}
-	if (!(validator.validate_textfeild.call(null,rulesForALL.name) && validator.validate_textfeild.call(null,rulesForALL.text) && validator.validate_deadline.call(null,rulesForALL.date) && validator.validate_users.call(null,rulesForALL.users))) {
-		$('#errormessage').html('<p>Проверьте правильность основных полей</p>');
+	
+	if (validator.validate_textfeild.call(null,rulesForALL.name) && validator.validate_textfeild.call(null,rulesForALL.text) && validator.validate_deadline.call(null,rulesForALL.date)) {
+		e.preventDefault();
+		$('#usrfld').toggleClass('hidedefault');
 	}
 	else {
-		e.preventDefault();
-		$('fieldset').toggleClass('hidedefault');
-	}	
+		$('#errormessage').html('<p>Проверьте правильность основных полей</p>');
+		
+	}
+	
 });
 
 let taskname = $('#taskname');
@@ -132,7 +131,7 @@ users.on("keyup", validator.validate_users.bind(null,rulesForALL.users));
 
 $('#form').submit(function(e) {
 	e.preventDefault();
-		if (validator.validate_textfeild.call(null,rulesForALL.name) && validator.validate_textfeild.call(null,rulesForALL.text) && validator.validate_deadline.call(null,rulesForALL.date) && validator.validate_users.call(null,rulesForALL.users) ) {
+		if (validator.validate_users.call(null,rulesForALL.users) ) {
 			let out = {};
 			out.taskname = taskname.val();
 			out.tasktext = tasktext.val();
