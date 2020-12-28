@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="css/addtask.css">
+	<script src="js/libs/jquery-3.5.1.min.js"></script>
+	<title>Добавить задачу</title>
+</head>
+<body>
+	<!-- <nav class="navbar">
+		<a href="addtask.html" class="navlink">Добавить задачу</a>
+		<a href='tasklist.html' class=navlink>Активные задачи</a>
+	</nav> -->
+
+	<div id="form">
+		<form name="taskadd" action="#" method="post">
+			<label for="taskname">Название задачи</label>
+			<input type="text" id="taskname" required><br>
+			<label for="tasktext">Описание задачи</label>
+            <input type="textarea" id="tasktext" required><br>
+            <fieldset>
+			<legend for="deadline">Срок исполнения</legend><scan>time</scan>
+            <input class="date" id="hours" type="text" maxlength="2" required><b>:</b>
+            <input class="date" id="mins" type="text"   maxlength="2" required><scan>date</scan>
+            <input class="date" id="date" type="text"  maxlength="2" required><b>:</b>
+            <input class="date" id="mounth" type="text" maxlength="2" required><b>:</b>
+            <input class="dateyear" id="year" type="text"  maxlength="4" required>
+            </fieldset>
+			<button id="adduserbtn">Добавить участников</button><br>
+			<fieldset class="hidedefault">
+			<legend for="users">Enter username for this task</legend>
+			<input type="text" id="users">
+			</fieldset>
+			<input type="submit" value="submit">
+		</form> 
+	</div>	
+	<div id="errormessage"></div>
+	<script src="js/addtask.js"></script>
+</body>
+</html>

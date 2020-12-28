@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="css/tasklist.css">
+	<title>Список задач</title>
+	<script src="js/libs/jquery-3.5.1.min.js"></script>
+</head>
+<body>
+		<div id="tasklist">
+			<p id="taskscount"></p>
+			<table id="table">
+				<thead>
+				   <tr>	
+						<th scope='col' id='idtask'>ID</th>
+						<th scope='col' id='datatask'><a id="up" href="#">&#x2B06;</a>Deadline<a id="down" href="#">&#x2B07;</a></th>
+						<th scope='col' id='nametask'>Name</th>
+						<th scope='col' id='texttask'>Description</th>
+						<th scope='col' id='usertask'>Users</th>
+					</tr>
+				</thead>
+				<tbody>
+					<!-- сюда отрисовыем таблицу -->
+				</tbody>
+			</table>
+			<button id="remtsk">Удалить выбранные задачи</button>
+		</div>
+	<script src="js/tasklist.js"></script>
+</body>
+</html>

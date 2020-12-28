@@ -1,0 +1,54 @@
+#tasklist {
+    width: 800px;
+	margin-right: auto;
+	margin-left: auto;
+}
+
+a {
+    text-decoration: none;
+}
+#remtsk {
+    margin: 5px 0 15px 0; 
+}
+table {
+    font-size: 1.3em;
+    border-collapse: 1px solid saddlebrown;
+}
+tr:nth-child(odd) {
+   background-color: rgb(218, 218, 218);
+}
+#taskscount {
+    font-size: 1.3em;
+    font-weight: bold;
+}
+
+th {
+    background-color: springgreen;
+    margin-left: auto;
+    margin-right: auto;
+   
+}
+
+tr:hover {
+    background-color: tomato;
+    cursor: pointer;
+}
+
+td {
+    padding: 5px;
+}
+.selected {
+    background-color: tomato !important;
+}
+
+button {
+	text-decoration: none;
+	display: inline-block;
+	color:white;
+	padding: 5px 5px;
+	border-radius: 10px;
+	margin: 10px 0;
+    width: 100%;
+    background-color: tomato;
+	
+}

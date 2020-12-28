@@ -1,0 +1,69 @@
+#form {
+	width: 600px;
+	margin-right: auto;
+	margin-left: auto;
+}
+
+legend {
+	font-size: 1.4em;
+	text-align: center;
+	border-radius: 10%;
+
+}
+
+label {
+	font-size: 1.5em;
+	font-weight: bold;
+}
+
+input {
+	width: 100%;
+	height: 2em;
+	font-size: 1.8em;
+	border: none;
+	outline: none;
+	border-bottom: 4px solid gray;
+	text-align: center;
+}
+
+button {
+	text-decoration: none;
+	display: inline-block;
+	color:white;
+	padding: 5px 5px;
+	border-radius: 10px;
+	margin: 10px 0;
+	width: 100%;
+	
+}
+
+
+#adduserbtn {
+	background-color: rgb(48, 48, 44);
+}
+
+#submit {
+	background-color:rgb(73, 12, 73);
+}
+
+#header,
+#errormessage {
+	text-align: center;
+}
+#header {
+	margin-top: 100px;
+}
+#errormessage {
+	font-size: 1.2em;
+}
+
+.hidedefault {
+	display: none;
+}
+
+.errorfield {
+	background-color : red;
+}
+
+
+

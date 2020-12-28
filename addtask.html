@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="css/addtask.css">
+	<script src="js/libs/jquery-3.5.1.min.js"></script>
+	<title>Добавить задачу</title>
+</head>
+<body>
+	<div id="header">
+	<h2>Добавление задачи, посмотреть <a href="./tasklist.html">текущие</a></h2>
+	</div>
+	<div id="form">
+		<form name="taskadd" action="#" method="post">
+			<fieldset>
+				<legend>Основные поля задачи</legend>
+				<label for="taskname">Название задачи</label>
+				<input type="text" id="taskname" required><br>
+				<label for="tasktext">Описание задачи</label>
+				<input type="textarea" id="tasktext" required><br>
+				<label for="deadline">Срок исполнения</label>
+				<input type="text" id="deadline" required><br>
+			</fieldset>
+			<button id="adduserbtn">Добавить участников</button><br>
+			<fieldset class="hidedefault">
+				<legend>Введите через запятую пользователей для задачи</legend>
+				<input type="text" id="users" required>
+			</fieldset>
+			<button id="submit">Добавить задачу</button>
+	
+		</form> 
+	</div>	
+	<div id="errormessage"></div>
+	<script src="js/addtask.js"></script>
+</body>
+</html>
